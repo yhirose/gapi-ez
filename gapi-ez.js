@@ -35,7 +35,7 @@ var gapiEz = (function (global) {
                     if (authResult.error) {
                         reject(authResult.error);
                     } else {
-                        resolve();
+                        resolve(authResult);
                     }
                 });
             });
@@ -51,7 +51,7 @@ var gapiEz = (function (global) {
                 },
                 reject);
             } else {
-                reject('not authorized yet'); 
+                reject('not authorized yet');
             }
         });
     };
