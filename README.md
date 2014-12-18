@@ -27,6 +27,13 @@ Usage
             alert('not authorized yet.');
             gapiEz.authorize(apiKey, clientId, scope, false).then(function () {
                 alert('authorized!!');
+                gapiEz.load('calendar', 'v3').then(function (api) {
+                    api.calendarList.list().then(function (resp) {
+                        resp.result.items.forEach(function (item) {
+                            console.log('calendar name: ' + item.summary);
+                        });
+                    });
+                });
             });
         });
     </script>
