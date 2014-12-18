@@ -1,7 +1,7 @@
 gapi-ez
 =======
 
-JavaScript library for easy accessing to the Google APIs Client Library for JavaScript
+JavaScript library for easy accessing to the [Google APIs Client Library for JavaScript](https://developers.google.com/api-client-library/javascript/)
 
 Usage
 -----
@@ -17,7 +17,8 @@ Usage
         var clientId = '[YOUR CLIENT ID]';
         var scope = ['https://www.googleapis.com/auth/calendar'];
 
-        gapiEz.authorize(apiKey, clientId, scope, true).then(function () {
+        var immediate = true;
+        gapiEz.authorize(apiKey, clientId, scope, immediate).then(function () {
             alert('already authorized.');
             gapiEz.logout().then(function () {
                 alert('logout.');
@@ -25,7 +26,8 @@ Usage
             });
         }, function () {
             alert('not authorized yet.');
-            gapiEz.authorize(apiKey, clientId, scope, false).then(function () {
+            var immediate = false;
+            gapiEz.authorize(apiKey, clientId, scope, immediate).then(function () {
                 alert('authorized!!');
                 gapiEz.load('calendar', 'v3').then(function (api) {
                     api.calendarList.list().then(function (resp) {
