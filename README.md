@@ -12,7 +12,7 @@ Usage
 
 `gapiEz` global object has the following methods:
 
- * [gapiEz.authorize(apiKey, cliendId, scope, immediate) -> token](#authorize)
+ * [gapiEz.authorize(params) -> token](#authorize)
  * [gapiEz.load(name, version) -> api](#load)
  * [gapiEz.logout()](#logout)
 
