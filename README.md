@@ -70,7 +70,7 @@ References
 ----------
 
 <a name="authorize"/>
-### gapiEz.authorize(apiKey, cliendId, scope, immediate) -> token
+### gapiEz.authorize(params) -> token
 
 #### Arguments:
 
@@ -83,7 +83,7 @@ References
 |    Name   |     Type     |         Description          |
 | --------- | ------------ | ---------------------------- |
 | apiKey    | string       | The application's API key    |
-| cliendId  | string       | The application's client ID. |
+| client_id | string       | The application's client ID. |
 | scope     | string/array | The auth scope or scopes     |
 | immediate | boolean      | If true, then login uses "immediate mode", which means that the token is refreshed behind the scenes, and no UI is shown to the user. |
 
