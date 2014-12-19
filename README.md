@@ -25,11 +25,14 @@ Sample
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="gapi-ez.js"></script>
     <script>
-        var apiKey = 'AIzaSyCsdJ24S9RTKBkpsaR5zrRGtF1PgoyweFw';
-        var clientId = '445140905124-f5ga8cl6t3i2kngl8r7fo17vv062cs4u.apps.googleusercontent.com';
-        var scope = ['https://www.googleapis.com/auth/calendar'];
+        var params = {
+            apiKey: '[YOUR API KEY]',
+            client_id: '[YOUR CLIENT ID]',
+            scope: ['https://www.googleapis.com/auth/calendar']
+        };
 
-        gapiEz.authorize(apiKey, clientId, scope, true).then(function () {
+        params.immediate = true;
+        gapiEz.authorize(params).then(function (token) {
             $('input').val('logout').click(function () {
                 gapiEz.logout().then(function () {
                     $('#message').text('logout');
@@ -37,7 +40,8 @@ Sample
             });
         }, function () {
             $('input').val('login').click(function () {
-                gapiEz.authorize(apiKey, clientId, scope, false).then(function () {
+                params.immediate = false;
+                gapiEz.authorize(params).then(function (token) {
                     gapiEz.load('calendar', 'v3').then(function (api) {
                         api.calendarList.list().then(function (resp) {
                             var s = '<h1>Calendars:</h1>';
@@ -53,6 +57,7 @@ Sample
     </script>
 </body>
 </html>
+<html>
 ```
 
 References
@@ -62,6 +67,12 @@ References
 ### gapiEx.authorize(apiKey, cliendId, scope, immediate) -> token
 
 #### Arguments:
+
+|  Name  |  Type  | Description                                                             |
+| ------ | ------ | ----------- | --------- | ------------ | ---------------------------- | --- |
+| params | object |             | Name      | Type         | Description                  |     |
+|        |        |             | --------- | ------------ | ---------------------------- |     |
+|        |        |             | apiKey    | string       | The application's API key    |     |
 
 |    Name   |     Type     |         Description          |
 | --------- | ------------ | ---------------------------- |

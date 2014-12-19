@@ -11,7 +11,9 @@ var gapiEz = (function (global) {
             callback(global.gapi);
         } else {
             global[_uuid] = function () {
-                gapi.client.setApiKey(apiKey);
+                if (apiKey) {
+                    gapi.client.setApiKey(apiKey);
+                }
 
                 script.parentNode.removeChild(script);
                 script = null;
@@ -24,13 +26,14 @@ var gapiEz = (function (global) {
         }
     };
 
-    var _authorize = function (apiKey, clientId, scope, immediate) {
+    //var _authorize = function (apiKey, clientId, scope, immediate) {
+    var _authorize = function (params) {
         return new Promise(function (resolve, reject) {
-            _getGAPI(apiKey, function (gapi) {
+            _getGAPI(params.apiKey, function (gapi) {
                 gapi.auth.authorize({
-                    client_id: clientId,
-                    scope: scope,
-                    immediate: immediate
+                    client_id: params.client_id,
+                    scope: params.scope,
+                    immediate: params.immediate
                 }, function (authResult) {
                     if (authResult.error) {
                         reject(authResult.error);
