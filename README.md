@@ -3,14 +3,20 @@ gapi-ez
 
 JavaScript library for easy accessing to the [Google APIs Client Library for JavaScript](https://developers.google.com/api-client-library/javascript/)
 
-Available methods
------------------
+Usage
+-----
 
-All these methods return a `Promise` object.
+```HTML
+<script src="gapi-ez.js"></script>
+```
 
- * [gapiEx.authorize(apiKey, cliendId, scope, immediate) -> token](#authorize)
- * [gapiEx.load(name, version) -> api](#load)
- * [gapiEx.logout()](#logout)
+`gapiEz` global object has the following methods:
+
+ * [gapiEz.authorize(apiKey, cliendId, scope, immediate) -> token](#authorize)
+ * [gapiEz.load(name, version) -> api](#load)
+ * [gapiEz.logout()](#logout)
+
+These methods return a `Promise` object instead of taking a callback function.
 
 Sample
 ------
@@ -64,7 +70,7 @@ References
 ----------
 
 <a name="authorize"/>
-### gapiEx.authorize(apiKey, cliendId, scope, immediate) -> token
+### gapiEz.authorize(apiKey, cliendId, scope, immediate) -> token
 
 #### Arguments:
 
@@ -88,7 +94,7 @@ References
 | token | object | OAuth 2.0 Token Object |
 
 <a name="load"/>
-### gapiEx.load(name, version) -> api
+### gapiEz.load(name, version) -> api
 
 #### Arguments:
 
@@ -104,7 +110,7 @@ References
 | api  | object | Google API object |
 
 <a name="logout"/>
-### gapiEx.logout()
+### gapiEz.logout()
 
 #### Arguments:
 
