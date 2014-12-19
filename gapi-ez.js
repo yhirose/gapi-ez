@@ -1,3 +1,7 @@
+// gapi-ez.js 0.1.0
+// https://github.com/yhirose/gapi-ez
+// Copyright (c) 2014 Yuji Hirose. All rights reserved.
+// Released under the MIT license
 
 var gapiEz = (function (global) {
 
