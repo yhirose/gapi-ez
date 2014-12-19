@@ -68,11 +68,11 @@ References
 
 #### Arguments:
 
-|  Name  |  Type  | Description                                                             |
-| ------ | ------ | ----------- | --------- | ------------ | ---------------------------- | --- |
-| params | object |             | Name      | Type         | Description                  |     |
-|        |        |             | --------- | ------------ | ---------------------------- |     |
-|        |        |             | apiKey    | string       | The application's API key    |     |
+|  Name  |  Type  |                  Description                   |
+| ------ | ------ | ---------------------------------------------- |
+| params | object | A key/value map of parameters for the request. |
+
+##### `params` object:
 
 |    Name   |     Type     |         Description          |
 | --------- | ------------ | ---------------------------- |
