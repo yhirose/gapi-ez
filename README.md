@@ -3,13 +3,6 @@ gapi-ez
 
 JavaScript library for easy accessing to the [Google APIs Client Library for JavaScript](https://developers.google.com/api-client-library/javascript/)
 
-Usage
------
-
-```HTML
-<script src="gapi-ez.js"></script>
-```
-
 `gapiEz` global object has the following methods:
 
  * [gapiEz.authorize(params) -> token](#authorize)
@@ -17,6 +10,50 @@ Usage
  * [gapiEz.logout()](#logout)
 
 These methods return a `Promise` object instead of taking a callback function.
+
+Setup
+-----
+
+```HTML
+<script src="gapi-ez.js"></script>
+```
+
+Examples
+--------
+
+### Authorize
+
+```JS
+gapiEz.authorize({
+    client_id: '[YOUR CLIENT ID]',
+    scope: '[SCOPE]',
+    immediate: true
+})
+.then(function () {
+    // authorized
+})
+.catch(function () {
+    // failed
+});
+```
+
+### Load
+
+```JS
+gapiEz.load('calendar', 'v3').then(function (api) {
+    api.calendarList.list().then(function (resp) {
+        // succeeded
+    });
+});
+```
+
+### Logout
+
+```JS
+gapiEz.logout().then(function () {
+    // succeeded
+});
+```
 
 Sample
 ------
