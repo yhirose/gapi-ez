@@ -30,7 +30,6 @@ var gapiEz = (function (global) {
         }
     };
 
-    //var _authorize = function (apiKey, clientId, scope, immediate) {
     var _authorize = function (params) {
         return new Promise(function (resolve, reject) {
             _getGAPI(params.apiKey, function (gapi) {
